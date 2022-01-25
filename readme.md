@@ -13,7 +13,7 @@ Then use the local copy of the repo as your create-react-app template
 
 `npx create-react-app my-app --template file:../path/to/local/repo/cra-template-toddjudd`
 
-### OR
+### Or
 
 use npm
 
