@@ -1,5 +1,5 @@
 {
-  "name": "cra-template-toddjudd",
+  "name": "@tracer482/cra-template-toddjudd",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "private": false
 }
