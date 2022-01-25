@@ -1,20 +1,41 @@
-# Create React App Template
+# Create React App Template - Todd Judd
+
+[![NPM Package](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml/badge.svg?branch=main)](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml)
 
 This repo is a
-[Create react App Template](https://create-react-app.dev/docs/custom-templates/)
+[Create React App Template](https://create-react-app.dev/docs/custom-templates/)
 
 ## Usage
 
 This repo can be used as a template localy by cloning the repo
 
-`git clone git@github.com:toddjudd/cra-template-toddjudd.git`
+```sh
+git clone git@github.com:toddjudd/cra-template-toddjudd.git
+```
 
 Then use the local copy of the repo as your create-react-app template
 
-`npx create-react-app my-app --template file:../path/to/local/repo/cra-template-toddjudd`
+```sh
+npx create-react-app my-app --template file:../path/to/local/repo/cra-template-toddjudd
+```
 
 ### Or
 
 use npm
 
-`npx create-react-app my-app --template @tracer482/cra-template-toddjudd`
+```sh
+npx create-react-app my-app --template @tracer482/cra-template-toddjudd
+```
+
+## System Requirements
+
+- [Node.js](https://nodejs.org)
+- [Create React App](https://create-react-app.dev)
+
+## Support
+
+Submit an [issue](https://github.com/toddjudd/cra-template-toddjudd/issues/new)
+
+## License
+
+[MIT License](https://github.com/toddjudd/cra-template-toddjudd/LICENSE)
