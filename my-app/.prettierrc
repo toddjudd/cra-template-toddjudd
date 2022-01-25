@@ -1,7 +1,0 @@
-{
-  "singleQuote": true,
-  "jsxSingleQuote": true,
-  "bracketSameLine": true,
-  "proseWrap": "always",
-  "end-of-line": "lf"
-}
