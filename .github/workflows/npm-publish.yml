@@ -20,6 +20,7 @@ jobs:
       - name: Setup GIT user
         uses: fregante/setup-git-user@v1
       - run: npm version patch
+        # todo: base version type on github.event.head_commit.message
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - run: npm publish
