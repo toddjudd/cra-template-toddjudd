@@ -21,7 +21,7 @@ jobs:
           newversion: patch
           push_version_commit: true
           github_token: ${{ secrets.GITHUB_TOKEN }} # built in actions token.  Passed tp gh-release if in use.
-          npm_token: ${{ secrets.NPM_TOKEN }} # user set secret token generated at npm
+          npm_token: ${{ secrets.npm_token }} # user set secret token generated at npm
   publish-npm:
     needs: version-bump
     runs-on: ubuntu-latest
