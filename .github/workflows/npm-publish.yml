@@ -20,7 +20,7 @@ jobs:
       - name: Setup GIT user
         uses: fregante/setup-git-user@v1
         #https://github.com/toddjudd/github-actions
-      - run: |
+      - run: >
           echo "NEWVERSION=$(node .github/workflows/reduce-commits.js)" >>
           $GITHUB_ENV
       - run: npm version $NEWVERSION
