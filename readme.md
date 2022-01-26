@@ -1,9 +1,9 @@
 # Create React App Template - Todd Judd
 
-[![NPM Package](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml/badge.svg?branch=main)](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml)
-
 This repo is a
 [Create React App Template](https://create-react-app.dev/docs/custom-templates/)
+
+[![NPM Package](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml/badge.svg?branch=main)](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml)
 
 ## Usage
 
