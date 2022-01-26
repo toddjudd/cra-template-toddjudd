@@ -3,7 +3,9 @@
 This repo is a
 [Create React App Template](https://create-react-app.dev/docs/custom-templates/)
 
-[![NPM Package](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml/badge.svg?branch=main)](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml)
+[![build](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml/badge.svg?branch=main)](https://github.com/toddjudd/cra-template-toddjudd/actions/workflows/npm-publish.yml)
+[![npm](https://badge.fury.io/js/@tracer482%2Fcra-template-toddjudd.svg)](https://badge.fury.io/js/@tracer482%2Fcra-template-toddjudd)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Usage
 
