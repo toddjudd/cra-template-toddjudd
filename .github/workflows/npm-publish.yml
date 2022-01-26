@@ -9,21 +9,7 @@ on:
       - main
 
 jobs:
-  version-bump:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Version and publish to npm
-        uses: bcomnes/npm-bump@v2.0.2
-        with:
-          git_email: todd.judd@gmail.com
-          git_username: ${{ github.actor }}
-          newversion: patch
-          push_version_commit: true
-          github_token: ${{ secrets.GITHUB_TOKEN }} # built in actions token.  Passed tp gh-release if in use.
-          npm_token: ${{ secrets.npm_token }} # user set secret token generated at npm
   publish-npm:
-    needs: version-bump
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,6 +17,12 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - name: Setup GIT user
+        uses: fregante/setup-git-user@v1
+      - run: npm version patch
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: git push
