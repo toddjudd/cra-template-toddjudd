@@ -5,30 +5,25 @@ const versionTypes = ['patch', 'minor', 'major'];
 
 const event = process.env.GITHUB_EVENT_PATH
   ? require(process.env.GITHUB_EVENT_PATH)
-  : require('./test-env.json');
+  : {};
 
-if (!event.commits) {
-  console.log(
-    "Couldn't find any commits in this event, incrementing patch version..."
-  );
-}
+export const determineNewVersion = (messages) => {
+  let newVersion = 'patch';
+  if (!messages || !messages.length) {
+    return newVersion;
+  }
+  if (
+    messages.some((message) =>
+      message.match(/(MINOR)|(feat)|(build)|(ci)|(revert)/g)
+    )
+  ) {
+    newVersion = 'minor';
+  }
+  if (messages.some((message) => message.match(/(BREAKING CHANGE)|(MAJOR)/g))) {
+    newVersion = 'major';
+  }
+  return newVersion;
+};
 
-const newVersion = event.commits.some((commit) =>
-  commit.message.match(/BREAKING CHANGE/gim)
-)
-  ? 'major'
-  : versionTypes[
-      Math.max(
-        ...event.commits.map((commit) =>
-          versionTypes.findIndex(
-            (vt) =>
-              vt ==
-              commitTypes.find(
-                (t) => t.type === commit.message.split(/\(|\:/)[0]
-              ).newversionType
-          )
-        )
-      )
-    ];
-
-process.stdout.write(newVersion || 'broken');
+const messages = event.commits?.map((commit) => commit.message);
+process.stdout.write(determineNewVersion(messages));
