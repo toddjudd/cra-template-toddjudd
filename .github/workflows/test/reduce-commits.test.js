@@ -1,4 +1,4 @@
-const { determineNewVersion } = require('../reduce-commits');
+const determineNewVersion = require('../reduce-commits');
 let messages;
 test('default output should return patch', () => {
   expect(determineNewVersion(null)).toMatch(/patch/);

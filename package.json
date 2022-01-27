@@ -26,9 +26,6 @@
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
-    ],
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    ]
   }
 }

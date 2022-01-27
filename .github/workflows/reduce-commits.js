@@ -7,7 +7,7 @@ const event = process.env.GITHUB_EVENT_PATH
   ? require(process.env.GITHUB_EVENT_PATH)
   : {};
 
-export const determineNewVersion = (messages) => {
+const determineNewVersion = (messages) => {
   let newVersion = 'patch';
   if (!messages || !messages.length) {
     return newVersion;
@@ -27,3 +27,5 @@ export const determineNewVersion = (messages) => {
 
 const messages = event.commits?.map((commit) => commit.message);
 process.stdout.write(determineNewVersion(messages));
+
+module.exports = determineNewVersion;
