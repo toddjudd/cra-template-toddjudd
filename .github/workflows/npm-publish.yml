@@ -16,7 +16,7 @@ jobs:
       # pull code
       - uses: actions/checkout@v2
       # Build tests
-      - run: npm test
+      - run: npm i --silent && npm test
       - run: node .github/workflows/reduce-commits.js
       # Template tests
       - run: >
