@@ -1,0 +1,23 @@
+# This workflow will run tests using node to validate a pull request before it's allowed to be merged
+
+name: Validate Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Validate Tests
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      # pull code
+      - uses: actions/checkout@v2
+      # Build tests
+      - run: npm i --silent && npm test
+      - run: node .github/workflows/reduce-commits.js
+      # Template tests
+      - run: >
+          npx create-react-app app-test --template file:./ && cd app-test && npm
+          test
