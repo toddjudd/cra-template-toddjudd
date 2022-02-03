@@ -1,8 +1,3 @@
-const { existsSync } = require('fs');
-const path = require('path');
-const commitTypes = require('./commit-types');
-const versionTypes = ['patch', 'minor', 'major'];
-
 const event = process.env.GITHUB_EVENT_PATH
   ? require(process.env.GITHUB_EVENT_PATH)
   : {};

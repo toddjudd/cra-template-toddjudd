@@ -9,25 +9,58 @@ on:
       - main
 
 jobs:
-  publish-npm:
+  # Validate Tests
+  tests:
     runs-on: ubuntu-latest
     steps:
+      # pull code
       - uses: actions/checkout@v2
+      # Build tests
+      - run: npm test
+      - run: node .github/workflows/reduce-commits.js
+      # Template tests
+      - run: >
+          npx create-react-app app-test --template file:./ && cd app-test && npm
+          test
+  # Build
+  build:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      # pull code
+      - uses: actions/checkout@v2
+      # set up node
       - uses: actions/setup-node@v2
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      # set up git user
+      #https://github.com/toddjudd/github-actions
       - name: Setup GIT user
         uses: fregante/setup-git-user@v1
-        #https://github.com/toddjudd/github-actions
-      - run: >
+      # update NPM Version
+      # update git tag
+      - name: Determine New Version
+        run: >
           echo "NEWVERSION=$(node .github/workflows/reduce-commits.js)" >>
           $GITHUB_ENV
       - run: npm version $NEWVERSION
-        # todo: base version type on github.event.head_commit.message
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      # commit
+      - run: git push
+      - run: git push --tags
+  # Deploy to NPM
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      # pull code
+      - uses: actions/checkout@v2
+      # set up node
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      # push to npm
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - run: git push
